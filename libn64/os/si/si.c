@@ -13,8 +13,8 @@
 
 void si_init()
 {
-	si_buffer_tx_ram_addr = (((uint32_t)&si_buffer_tx) & 0x1FFFFF);
-	si_buffer_rx_ram_addr = (((uint32_t)&si_buffer_rx) & 0x1FFFFF);
+	si_buffer_tx_ram_addr = (((uint32_t)&si_buffer_tx) & RDRAM_DIRECT_MASK);
+	si_buffer_rx_ram_addr = (((uint32_t)&si_buffer_rx) & RDRAM_DIRECT_MASK);
 	si_init_tx_buffer();
 	si_init_devices();
 }
@@ -49,12 +49,12 @@ void si_send_request(uint32_t buffer_addr)
 {
 	si_dma_wait();	
 	si_set_dram_addr(buffer_addr);
-	si_dma_write(0x1FC007C0);
+	si_dma_write(PIF_RAM_ADDR);
 }
 
 void si_recv_response(uint32_t buffer_addr)
 {
 	si_dma_wait();
 	si_set_dram_addr(buffer_addr);
-	si_dma_read(0x1FC007C0);
+	si_dma_read(PIF_RAM_ADDR);
 }

@@ -120,7 +120,7 @@ uint32_t si_process_response()
 // If you want to offer the use of Non-Standard controllers
 // 1. Promper user to Hold "Start + A" buttons
 // 2. Call in a loop for 5-10 seconds or whatever you think your user needs.
-void si_controller_user_identify()
+void si_controller_manual_identify()
 {
 	for(uint32_t idx = 0; idx < MAX_CONTROLLERS; idx++)
 	{

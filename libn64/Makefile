@@ -39,8 +39,8 @@ CFILES = $(call FIXPATH,\
 	os/main.c \
 	os/mm.c \
 	os/panic.c \
-	os/si.c \
-	os/si_port.c \
+	os/si/si.c \
+	os/si/si_port.c \
 	os/thread.c \
 	os/time.c \
 	rcp/vi.c \

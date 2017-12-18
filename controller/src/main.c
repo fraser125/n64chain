@@ -92,7 +92,7 @@ void main(void *unused __attribute__((unused))) {
 		context.y = 13;
 		libn64_fbtext_puts(&context, "X");
 
-		si_controller_user_identify();
+		si_controller_manual_identify();
 
 		// X 1, 10, 21, 30
 		context.x = 3;

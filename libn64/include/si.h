@@ -14,8 +14,8 @@
 #include <libn64.h>
 #include <stdint.h>
 
-#define ALIGN(x,a)              __ALIGN_MASK(x,(typeof(x))(a)-1)
-#define __ALIGN_MASK(x,mask)    (((x)+(mask))&~(mask))
+#define RDRAM_DIRECT_MASK	0x1FFFFF
+#define PIF_RAM_ADDR			0x1FC007C0
 
 #define MAX_CONTROLLERS 4
 #define INVALID_CONTROLLER_COUNT -1
@@ -210,7 +210,7 @@ void si_send_request(uint32_t buffer_addr);
 void si_recv_response(uint32_t buffer_addr);
 uint32_t si_prepare_request(uint32_t controller_count);
 uint32_t si_process_response();
-void si_controller_user_identify();
+void si_controller_manual_identify();
 
 libn64func
 static inline uint32_t si_status(void) {
